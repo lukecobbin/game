@@ -1,5 +1,7 @@
 #!/bin/bash
 
+clear
+
 #choose player
 
 echo "Choose your player:
