@@ -63,6 +63,8 @@ if [[ $beast == $tarnished || $tarnished == "coffee" ]]; then
         echo "You defeated the beast!!!, well done"
 elif [[ $tarnished == "sword" && $type == "Samurai" ]]; then
         echo "Critical hit, the beast is dead"
+elif [[ $tarnished == "axe" && $type == "Samurai" ]]; then
+        echo "You went for the head, the beast is dead"        
 else
         echo "You died"
         exit 1
