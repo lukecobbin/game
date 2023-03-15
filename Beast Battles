@@ -1,0 +1,88 @@
+#!/bin/bash
+
+#choose player
+
+echo "Choose your player:
+1 - Samurai
+2 - Preist
+3 - Lumberjack"
+
+read class
+
+case $class in
+
+        1)
+                type="Samurai"
+                hp=10
+                attack=20
+                ;;
+        2)
+                type="Preist"
+                hp=20
+                attack=10
+                ;;
+        3)
+                type="Lumberjack"
+                hp=15
+                attack=15
+                ;;
+esac
+
+echo "You have chosen the $type player, your hp is $hp your attack is $attack"
+
+sleep 2
+
+#First beast battle
+
+beast=$(( $RANDOM % 2 ))
+
+echo "Your first beast approaches, Prepare to battle. Pick a number between 0-1."
+
+read tarnished
+
+if [[ $beast == $tarnished ]]; then
+        echo "Beast VANQUISHED!! Congratulations"
+else
+        echo "You died"
+        exit 1
+fi
+
+sleep 2
+
+#Second beast approaches
+
+beast=$(( $RANDOM % 10 ))
+
+echo "A second beast approaches, Prepare to battle. Choose an attack between 0-9."
+
+read tarnished
+
+if [[ $beast == $tarnished || $tarnished == "coffee" ]]; then
+        echo "You defeated the beast!!!, well done"
+elif [[ $tarnished == "sword" && $type == "Samurai" ]]; then
+        echo "Critical hit, the beast is dead"
+else
+        echo "You died"
+        exit 1
+fi
+
+sleep 2
+
+#Final boss battle
+
+beast=$(( $RANDOM % 8 ))
+
+echo "The final boss approaches, be prepared"
+
+sleep 1
+
+echo "Choose an attack 0-7"
+
+read  tarnished
+
+if [[ $beast == $tarnished ]]; then
+        echo "You defeated the boss! All glory to vallhalah!"
+else
+        echo "You died"
+        echo "Your defeat shall forever be etched into the annals of history as one of the most legendary battles ever fought!"
+fi
